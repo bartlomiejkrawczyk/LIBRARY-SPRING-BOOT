@@ -7,7 +7,7 @@ public interface IssueService {
 
 	Optional<Issue> borrowIssue(String isbn, Integer userId);
 
-	Optional<Issue> returnIssue(String isbn, Integer userId);
+	Optional<Issue> returnIssue(Integer issueId, Integer userId);
 
 	Issue addIssue(String isbn);
 }

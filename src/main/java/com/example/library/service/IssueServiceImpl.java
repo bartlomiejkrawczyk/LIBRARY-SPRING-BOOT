@@ -31,10 +31,8 @@ public class IssueServiceImpl implements IssueService {
 	}
 
 	@Override
-	public Optional<Issue> returnIssue(String isbn, Integer userId) {
-		return issueRepository.findAllByIsbnAndUserIdIsNull(isbn)
-				.stream()
-				.findAny()
+	public Optional<Issue> returnIssue(Integer issueId, Integer userId) {
+		return issueRepository.findById(issueId)
 				.filter(issue -> Objects.equals(issue.getUserId(), userId))
 				.map(issue -> {
 					issue.setUserId(null);
